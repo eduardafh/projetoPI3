@@ -11,7 +11,7 @@ class Clientes(models.Model):
 
 class Pedidos(models.Model):
     cliente = models.ForeignKey(Clientes, on_delete=models.PROTECT)
-    data = models.DateField()
+    data_pedido = models.DateField()
     valor = models.CharField(max_length=50)
 
     def __str__(self):
@@ -20,8 +20,8 @@ class Pedidos(models.Model):
 class Itens(models.Model):
     pedido = models.ForeignKey(Pedidos, on_delete=models.PROTECT)
     produto = models.CharField(max_length=100)
-    quant = models.CharField(max_length=100)
-    precouni = models.CharField(max_length=100)
+    quantidade = models.CharField(max_length=100)
+    preco_unitario = models.CharField(max_length=100)
 
     def __str__(self):
         return self.produto
